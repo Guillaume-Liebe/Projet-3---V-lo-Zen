@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Carte interactive de location de vélos</title>
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin=""/>
+        <!-- Make sure you put this AFTER Leaflet's CSS -->
+        <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+        integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+        crossorigin=""></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    </head>
+    
+    <body >
+
+        <header>
+            <div class="container_header">
+                    <img src="img/logos_velov.png" alt="logo velov à Lyon">
+
+                <div class="taille">
+                        <img src="img/bike_hearts_velov.png" alt="vélo_coeur" >
+                </div>            
+            </div>
+
+        </header>
+        
+        <section>
+            <div class="style">        
+                <h1>Bienvenue sur Vélo'Zen !</h1>  
+                <p>Vous avez besoin d'un vélo pour vos déplacements à Lyon ?</p>             
+                <img class="fleche" src="img/fleche.png" alt="fleche">
+                <ul>
+                    <li><a href="#lien">Réservation de votre vélo</a></li>
+                </ul>
+            </div>
+
+            <div id= "slider">
+                <div id= "images">
+                    <img src="img/velov_2.JPG" alt="images slider">
+                </div>                
+
+                <a href="#prew" class= "prew "onclick="prewImage()">
+                        <img src="img/fleche_slider_2.png" alt="fleche_slider_2">
+                </a> 
+
+                <a href="#next" class= "next"onclick="nextImage()">
+                    <img src="img/fleche_slider_1.png" alt="fleche_slider_1">
+                </a>
+            </div>
+        </section>
+
+        <section>                          
+            <div class="style_2">              
+            <h1 id="lien">Carte des stations de vélo à Lyon !</h1> 
+            </div> 
+            
+            <div id="containerFlex">           
+                <div id="containerClick" class="containerClick">
+                            <!-- Click sur les divers --> 
+                    <div id= "stationDisponible" class="stationDisponible">
+                        <p>La station à l'adresse :<br><span id= "stationGreen"></span></br>  est disponible !</p>                       
+                        <button id="boutonReserver">Réserver</button> 
+                    </div>
+                    <div id="ReservationEnCours">
+                        <p>Vous avez déjà<br>une réservation en cours.</p>  
+                    </div> 
+                    <div id= "VeloStationIndisponible" class="VeloStationIndisponible">
+                        <p>La station à l'adresse :<br><span id= "stationOrange"></span></br>est ouverte mais aucun vélo</br> n'est disponible.</p> 
+                    </div> 
+                    <div id="stationNonDisponible" class="stationNonDisponible">
+                        <p>La station à l'adresse : <br><span id= "stationRed"></span></br>est actuellement indisponible.</p> 
+                    </div> 
+
+                    <div id= "containerCanvas" class="containerCanvas">
+                        <p>Signature de réservation : <strong> <!-- Nom de la station inséré en Javascript --> </strong></p>
+                        <canvas id="signature" width="380" height="200"></canvas>
+
+                        <!-- Bouton du canvas -->
+                        <div id="boutonCanvas">
+                            <p><button id="boutonValider">Valider</button></p> <!-- Bouton Valider -->
+                            <p><button id="boutonEffacer">Effacer</button></p> <!-- Bouton Effacer -->
+
+                        </div>
+                    </div> 
+
+                    <div id= "containerValider" class="containerValider">
+                        <div id="titre">
+                            <p>Votre réservation à bien été enregistré<br> et va expirer dans <br><span id="minutes"></span> min et <span id="secondes"></span> sec(s)</p>
+                            <p><button id="boutonAnnuler">Annuler</button></p><!-- Bouton Annuler -->
+                        </div>
+                        <div id="titreExpiration">
+                            <p>Votre reservation a expiré... :(</p> 
+                        </div> 
+                        
+                    </div>
+                    <div id="Annulation">
+                        <p>Vous avez annulé votre réservation.</p>  
+                    </div> 
+                </div>
+                    <div class="containerMap" id="mapid"></div>
+                </div>
+          
+            </div> <!-- fin cadre signature -->      
+        </section>
+
+        <footer>
+            <p>© 2019 Vélo'Zen - <span><a href="mensions_legales.html">Mensions Légales</a></span></p>   
+        </footer>
+
+        
+        <script src="js/slider.js"></script>
+        <script src="js/map.js"></script>
+        <script src="js/canvas.js"></script>
+        <script src="js/reservation.js"></script>
+        <script src="js/ajax.js"></script>
+
+
+    </body>
+</html>
