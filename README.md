@@ -1,4 +1,4 @@
-# Projet-3---V-lo-Zen
+# Projet-3---Vélo-Zen
 Réalisation d'une carte intéractive pour vélo. Utilisation de l'API JCDecaux et Google Maps.
 Outils utilisés : HTML | CSS | JAVASCRIPT.
 
